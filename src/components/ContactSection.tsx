@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import resumePdf from '../@assets/pdf/resume.pdf';
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -41,28 +42,28 @@ const ContactSection = () => {
     const socialLinks = [
         {
             name: 'GitHub',
-            url: 'https://github.com/tanjila-shamima',
+            url: 'https://github.com/TanjilaShamima/',
             icon: '🐱',
             color: 'from-gray-600 to-gray-800'
         },
         {
             name: 'LinkedIn',
-            url: 'https://linkedin.com/in/tanjila-akter',
+            url: 'https://www.linkedin.com/in/tanjila-shamima/',
             icon: '💼',
             color: 'from-blue-600 to-blue-800'
         },
         {
             name: 'Beecrowd',
-            url: 'https://www.beecrowd.com.br/judge/en/profile/your-profile',
+            url: 'https://judge.beecrowd.com/en/profile/181949',
             icon: '🧮',
             color: 'from-green-600 to-green-800'
         },
-        {
-            name: 'Skype',
-            url: 'skype:your-skype-id?chat',
-            icon: '💬',
-            color: 'from-blue-500 to-blue-700'
-        },
+        // {
+        //     name: 'Skype',
+        //     url: 'skype:your-skype-id?chat',
+        //     icon: '💬',
+        //     color: 'from-blue-500 to-blue-700'
+        // },
         {
             name: 'Portfolio',
             url: 'https://tanjila-shamima.web.app',
@@ -299,7 +300,7 @@ const ContactSection = () => {
                             <h3 className="text-xl font-bold text-white mb-4">Quick Actions</h3>
                             <div className="space-y-3">
                                 <a
-                                    href="/resume.pdf"
+                                    href="../@assets/pdf/resume.pdf"
                                     download
                                     className="block w-full bg-white/20 hover:bg-white/30 text-white text-center py-3 rounded-lg font-medium transition-colors duration-200"
                                 >
@@ -325,7 +326,7 @@ const ContactSection = () => {
                     className="text-center mt-16 pt-8 border-t border-white/20"
                 >
                     <p className="text-gray-400">
-                        © 2024 Tanjila Akter. Built with Next.js, TypeScript, and Tailwind CSS.
+                        © {new Date().getFullYear()} This site is copyright of Tanjila Shamima. All rights reserved.
                     </p>
                 </motion.div>
             </div>

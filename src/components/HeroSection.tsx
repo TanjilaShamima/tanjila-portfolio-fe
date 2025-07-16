@@ -33,7 +33,7 @@ const HeroSection = () => {
                 ))}
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 flex items-center justify-center min-h-screen">
+            <div className="relative z-10 container mx-auto px-4 flex items-center justify-center min-h-screen py-32">
                 <div className="text-center text-white max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
@@ -96,7 +96,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
                     >
-                        Tanjila Akter
+                        Tanjila Akter Shamima
                     </motion.h1>
 
                     <motion.p
@@ -124,13 +124,13 @@ const HeroSection = () => {
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
                         <a
-                            href="#contact"
+                            href="https://www.linkedin.com/in/tanjila-shamima/"
                             className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                         >
                             Get In Touch
                         </a>
                         <a
-                            href="/resume.pdf"
+                            href="../@assets/pdf/resume.pdf"
                             download
                             className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-full font-semibold hover:bg-purple-400 hover:text-white transition-all duration-300"
                         >

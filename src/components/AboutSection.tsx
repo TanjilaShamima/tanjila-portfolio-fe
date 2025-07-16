@@ -1,7 +1,10 @@
 'use client';
 
+import profile from '@/@assets/images/profile.jpg'; // Adjust the path as necessary
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+
+const unplush_image = "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
 
 const AboutSection = () => {
     return (
@@ -44,20 +47,20 @@ const AboutSection = () => {
                     <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative"
+                        className="relative flex justify-center mt-20"
                     >
                         <div className="relative w-80 h-80 mx-auto lg:mx-0">
                             <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-xl opacity-30 animate-pulse"></div>
                             <div className="relative w-full h-full bg-white/20 backdrop-blur-lg rounded-full border border-white/30 shadow-xl overflow-hidden">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                                    alt="Tanjila Akter"
+                                    src={profile.src}
+                                    alt="Tanjila Akter - Profile Photo"
                                     fill
                                     className="object-cover rounded-full"
                                 />
@@ -110,7 +113,7 @@ const AboutSection = () => {
                         >
                             <h4 className="text-lg font-semibold mb-2">Current Focus</h4>
                             <p className="text-purple-100">
-                                System Design • Real-time Features • Next.js Architecture • Python & Django • AWS Cloud Services
+                                System Design • Real-time Features • Microservice • Python & Django • AWS Cloud Services • Blockchain • Artifical Intelligence
                             </p>
                         </motion.div>
                     </motion.div>
