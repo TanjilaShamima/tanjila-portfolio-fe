@@ -4,7 +4,7 @@ import profile from '@/@assets/images/profile.jpg'; // Adjust the path as necess
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const unplush_image = "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+// const unplush_image = "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
 
 const AboutSection = () => {
     return (
@@ -80,13 +80,13 @@ const AboutSection = () => {
                                 Passionate Developer & Problem Solver
                             </h3>
                             <p className="text-gray-700 leading-relaxed mb-4">
-                                I'm Tanjila Akter, a passionate and results-driven Senior Software Engineer with over 5 years of experience in building scalable, modern web applications. I specialize in React.js, Next.js, Node.js, TypeScript, and have a strong command over full-stack development using the MERN stack.
+                                I&apos;m Tanjila Akter, a passionate and results-driven Senior Software Engineer with over 5 years of experience in building scalable, modern web applications. I specialize in React.js, Next.js, Node.js, TypeScript, and have a strong command over full-stack development using the MERN stack.
                             </p>
                             <p className="text-gray-700 leading-relaxed mb-4">
-                                I've worked across diverse industries, delivering high-performance applications and collaborating closely with cross-functional teams. With a strong foundation in problem-solving (500+ problems solved), UI/UX design, and a keen eye for detail, I focus on building elegant, responsive, and efficient web solutions.
+                                I&apos;ve worked across diverse industries, delivering high-performance applications and collaborating closely with cross-functional teams. With a strong foundation in problem-solving (500+ problems solved), UI/UX design, and a keen eye for detail, I focus on building elegant, responsive, and efficient web solutions.
                             </p>
                             <p className="text-gray-700 leading-relaxed">
-                                I'm currently working at Cosmos Tech Labs where I focus on system design, real-time features, and advanced Next.js-based architectures. I'm also actively learning Python, Django, and AWS.
+                                I&apos;m currently working at Cosmos Tech Labs where I focus on system design, real-time features, and advanced Next.js-based architectures. I&apos;m also actively learning Python, Django, and AWS.
                             </p>
                         </div>
 

@@ -3,10 +3,10 @@
 import { CodeBracketIcon, LinkIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const ProjectsSection = () => {
-    const [selectedProject, setSelectedProject] = useState<number | null>(null);
+    // const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
     const projects = [
         {

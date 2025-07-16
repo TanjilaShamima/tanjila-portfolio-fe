@@ -164,7 +164,7 @@ const ExperienceSection = () => {
                         { label: 'Problems Solved', value: '500+' }
                     ].map((stat, index) => (
                         <motion.div
-                            key={stat.label}
+                            key={index}
                             whileHover={{ scale: 1.05 }}
                             className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 text-center"
                         >

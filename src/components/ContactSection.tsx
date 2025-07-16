@@ -8,7 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import resumePdf from '../@assets/pdf/resume.pdf';
+// import resumePdf from '../@assets/pdf/resume.pdf';
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -131,7 +131,7 @@ const ContactSection = () => {
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
                     <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-                        Let's discuss your next project or collaboration opportunity. I'm always excited to work on innovative solutions.
+                        Let&apos;s discuss your next project or collaboration opportunity. I&apos;m always excited to work on innovative solutions.
                     </p>
                 </motion.div>
 
