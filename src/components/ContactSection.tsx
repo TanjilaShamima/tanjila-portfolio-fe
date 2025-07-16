@@ -75,14 +75,14 @@ const ContactSection = () => {
         {
             icon: <EnvelopeIcon className="w-6 h-6" />,
             label: 'Email',
-            value: 'tanjila.akter@example.com',
-            href: 'mailto:tanjila.akter@example.com'
+            value: 'tanjila.diu.edu@gmail.com',
+            href: 'mailto:tanjila.diu.edu@gmail.com'
         },
         {
             icon: <PhoneIcon className="w-6 h-6" />,
             label: 'Phone',
-            value: '+880 XXX XXX XXXX',
-            href: 'tel:+880xxxxxxxxx'
+            value: '+880 199 741 2643',
+            href: '+880 199 741 2643'
         },
         {
             icon: <MapPinIcon className="w-6 h-6" />,
