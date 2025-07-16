@@ -80,7 +80,7 @@ const AboutSection = () => {
                                 Passionate Developer & Problem Solver
                             </h3>
                             <p className="text-gray-700 leading-relaxed mb-4">
-                                I'm Tanjila Akter, a passionate and results-driven Senior Software Engineer with over 4 years of experience in building scalable, modern web applications. I specialize in React.js, Next.js, Node.js, TypeScript, and have a strong command over full-stack development using the MERN stack.
+                                I'm Tanjila Akter, a passionate and results-driven Senior Software Engineer with over 5 years of experience in building scalable, modern web applications. I specialize in React.js, Next.js, Node.js, TypeScript, and have a strong command over full-stack development using the MERN stack.
                             </p>
                             <p className="text-gray-700 leading-relaxed mb-4">
                                 I've worked across diverse industries, delivering high-performance applications and collaborating closely with cross-functional teams. With a strong foundation in problem-solving (500+ problems solved), UI/UX design, and a keen eye for detail, I focus on building elegant, responsive, and efficient web solutions.
