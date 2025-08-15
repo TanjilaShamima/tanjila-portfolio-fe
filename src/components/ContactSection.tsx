@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export interface ContactResponse {
     success: boolean;
     message: string;
-    data?: any;
+    data?: unknown;
 }
 
 export interface ContactErrors {

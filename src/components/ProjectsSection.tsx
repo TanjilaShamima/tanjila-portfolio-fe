@@ -164,7 +164,7 @@ const ProjectsSection = () => {
                     className="text-center mt-12"
                 >
                     <a
-                        href="https://github.com/tanjila-shamima"
+                        href="https://github.com/TanjilaShamima"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
