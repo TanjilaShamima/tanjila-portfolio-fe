@@ -130,11 +130,12 @@ const HeroSection = () => {
                             Get In Touch
                         </a>
                         <a
-                            href="../@assets/pdf/resume.pdf"
-                            download
+                            href="https://drive.google.com/file/d/1lcpmeM-1SFuh6TcAjA0u25gOF6VDDnrB/view?usp=sharing"
                             className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-full font-semibold hover:bg-purple-400 hover:text-white transition-all duration-300"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            Download Resume
+                            My Resume
                         </a>
                     </motion.div>
 
