@@ -15,7 +15,7 @@ const ProjectsSection = () => {
       description:
         "Full-stack e-commerce platform built with Next.js, Node.js, and MongoDB featuring real-time inventory management, payment integration, and admin dashboard.",
       image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash clothing business
       technologies: [
         "Next.js",
         "Node.js",
@@ -33,7 +33,7 @@ const ProjectsSection = () => {
       description:
         "RESTful API for task automation with webhook integration, scheduled jobs, and comprehensive logging system.",
       image:
-        "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash API docs
       technologies: [
         "Node.js",
         "Express.js",
@@ -52,7 +52,7 @@ const ProjectsSection = () => {
       description:
         "Cloud kitchen management system with real-time order tracking, inventory management, and analytics dashboard.",
       image:
-        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash cloud kitchen type image
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash cloud kitchen
       technologies: [
         "Next.js",
         "Tailwind CSS",
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
       description:
         "A full-stack app where you can pick the date and time and fix an appointment with your doctor. A doctor can review his appointments and prescribe medicine to a patient.",
       image:
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash hospital
       technologies: ["React JS", "SASS", "Express JS", "MongoDB"],
       liveUrl: "https://smart-hospital-application.web.app/",
       githubUrl:
@@ -87,7 +87,7 @@ const ProjectsSection = () => {
       description:
         "Modern chat application with Socket.io integration, message encryption, file sharing, and group chat functionality.",
       image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash chat app
       technologies: ["Next.js", "Socket.io", "Express.js", "JWT", "MongoDB"],
       liveUrl: "#",
       githubUrl: "https://github.com/TanjilaShamima/simple-chat-application",
@@ -99,7 +99,7 @@ const ProjectsSection = () => {
       description:
         "Comprehensive project management tool with task tracking, team collaboration, time logging, and detailed analytics.",
       image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash travel
       technologies: [
         "React.js",
         "TypeScript",
@@ -118,10 +118,22 @@ const ProjectsSection = () => {
       description:
         "Educational platform with course management, progress tracking, interactive quizzes, and student-teacher communication.",
       image:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash volunteer
       technologies: ["React.js", "Node.js", "MongoDB", "Socket.io", "AWS S3"],
       liveUrl: "https://volunteer-network-f167d.firebaseapp.com/",
       githubUrl: "https://github.com/TanjilaShamima/volunteer-network-client",
+      category: "Full Stack",
+    },
+    {
+      id: 7,
+      title: "Restaurant Management System",
+      description:
+        "Comprehensive platform for managing restaurant operations, including table reservations, order management, and customer feedback.",
+      image:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Unsplash restaurant
+      technologies: ["React.js", "Node.js", "MongoDB", "Socket.io", "AWS S3"],
+      liveUrl: "https://onion-restaurent.web.app/",
+      githubUrl: "https://github.com/TanjilaShamima/hot-onion-restaurent",
       category: "Full Stack",
     },
   ];
@@ -199,7 +211,7 @@ const ProjectsSection = () => {
                   )}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex justify-between gap-4">
                   <a
                     href={project.liveUrl}
                     className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex-1 justify-center"
@@ -212,6 +224,7 @@ const ProjectsSection = () => {
                     className="flex items-center gap-2 border-2 border-purple-600 text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-purple-600 hover:text-white transition-all duration-200"
                   >
                     <CodeBracketIcon className="w-4 h-4" />
+                    Codebase
                   </a>
                 </div>
               </div>
