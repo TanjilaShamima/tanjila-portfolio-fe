@@ -64,9 +64,9 @@ const ProjectsSection = () => {
         "PostgreSQL",
         "Sequelize",
       ],
-      liveUrl: "https://full-ecommerce-api.onrender.com/api/docs/",
-      githubUrl: "https://github.com/TanjilaShamima/fashion-hub-api",
-      category: "Backend",
+      liveUrl: "https://cloud-kitchen-fe-om36.vercel.app/",
+      githubUrl: "https://github.com/TanjilaShamima/cloud-kitchen-fe",
+      category: "Frontend",
     },
     {
       id: 4,
