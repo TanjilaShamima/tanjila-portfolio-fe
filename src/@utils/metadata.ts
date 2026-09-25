@@ -1,1 +1,1 @@
-export const baseUrl = 'https://example.com'; // Replace with your actual base URL
+export const baseUrl = 'https://tanjila-shamima.web.app';

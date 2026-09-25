@@ -1,27 +1,36 @@
-'use client';
-
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import EducationSection from '@/components/EducationSection';
 import ExperienceSection from '@/components/ExperienceSection';
-import HeroSection from '@/components/HeroSection';
-import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import Hero from '@/components/Hero';
+import LabSection from '@/components/LabSection';
+import Navbar from '@/components/Navbar';
 import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
+import TechMarquee from '@/components/TechMarquee';
+import WritingSection from '@/components/WritingSection';
+import { formatPostDate, getAllPosts } from '@/lib/blog';
 
 export default function Home() {
+  const posts = getAllPosts().map((post) => ({ ...post, dateLabel: formatPostDate(post.date) }));
+
   return (
-    <main className="relative">
-      <Navigation />
-      <div className="space-y-0">
-        <HeroSection />
+    <>
+      <Navbar />
+      <main className="overflow-x-clip">
+        <Hero />
+        <TechMarquee />
         <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
         <ExperienceSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <LabSection />
+        <WritingSection posts={posts} />
         <EducationSection />
         <ContactSection />
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -1,181 +1,160 @@
 'use client';
 
-import { CodeBracketIcon, LinkIcon } from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-// import { useState } from 'react';
+import { projects, socials } from '@/data/profile';
+import { ArrowUpRight, Github } from 'lucide-react';
+import Section, { Reveal } from './SectionHeading';
+import TechIcon from './TechIcon';
 
-const ProjectsSection = () => {
-    // const [selectedProject, setSelectedProject] = useState<number | null>(null);
+const githubUrl = socials.find((s) => s.name === 'GitHub')?.url;
 
-    const projects = [
-        {
-            id: 1,
-            title: 'E-Commerce Platform',
-            description: 'Full-stack e-commerce platform built with Next.js, Node.js, and MongoDB featuring real-time inventory management, payment integration, and admin dashboard.',
-            image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-            technologies: ['Next.js', 'Node.js', 'MongoDB', 'Stripe', 'TypeScript'],
-            liveUrl: '#',
-            githubUrl: '#',
-            category: 'Full Stack'
-        },
-        {
-            id: 2,
-            title: 'Real-time Chat Application',
-            description: 'Modern chat application with Socket.io integration, message encryption, file sharing, and group chat functionality.',
-            image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-            technologies: ['React.js', 'Socket.io', 'Express.js', 'JWT', 'MongoDB'],
-            liveUrl: '#',
-            githubUrl: '#',
-            category: 'Full Stack'
-        },
-        {
-            id: 3,
-            title: 'Project Management Dashboard',
-            description: 'Comprehensive project management tool with task tracking, team collaboration, time logging, and detailed analytics.',
-            image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-            technologies: ['React.js', 'TypeScript', 'Material UI', 'GraphQL', 'PostgreSQL'],
-            liveUrl: '#',
-            githubUrl: '#',
-            category: 'Frontend'
-        },
-        {
-            id: 4,
-            title: 'Weather Analytics App',
-            description: 'Weather forecasting application with interactive maps, historical data analysis, and personalized weather alerts.',
-            image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-            technologies: ['Next.js', 'Tailwind CSS', 'Chart.js', 'Weather API'],
-            liveUrl: '#',
-            githubUrl: '#',
-            category: 'Frontend'
-        },
-        {
-            id: 5,
-            title: 'Task Automation API',
-            description: 'RESTful API for task automation with webhook integration, scheduled jobs, and comprehensive logging system.',
-            image: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-            technologies: ['Node.js', 'Express.js', 'Redis', 'Bull Queue', 'Docker'],
-            liveUrl: '#',
-            githubUrl: '#',
-            category: 'Backend'
-        },
-        {
-            id: 6,
-            title: 'Learning Management System',
-            description: 'Educational platform with course management, progress tracking, interactive quizzes, and student-teacher communication.',
-            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-            technologies: ['React.js', 'Node.js', 'MongoDB', 'Socket.io', 'AWS S3'],
-            liveUrl: '#',
-            githubUrl: '#',
-            category: 'Full Stack'
-        },
-    ];
+/* Small line diagrams, one per project, drawn in the ink colour with the accent for the "interesting" part.
+   They animate on card hover via the `group` class. */
 
+const HotspotGlyph = () => {
+    // Deterministic 12×6 grid with a few hot cells, standing in for a crime-density map.
+    const hot = new Set([15, 16, 27, 28, 29, 40, 52, 53, 45, 57]);
     return (
-        <section id="projects" className="py-20 bg-gradient-to-br from-blue-50 via-purple-100 to-pink-50 relative overflow-hidden">
-            <div className="container mx-auto px-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                        Featured Projects
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
-                    <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-                        Showcase of my recent work including full-stack applications, APIs, and frontend projects
-                    </p>
-                </motion.div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            whileHover={{ y: -10 }}
-                            className="bg-white/60 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300"
-                        >
-                            <div className="relative h-48 overflow-hidden">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    fill
-                                    className="object-cover transition-transform duration-300 hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                                <div className="absolute top-4 right-4">
-                                    <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                                        {project.category}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                                <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
-
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.technologies.slice(0, 3).map((tech) => (
-                                        <span
-                                            key={tech}
-                                            className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                    {project.technologies.length > 3 && (
-                                        <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
-                                            +{project.technologies.length - 3} more
-                                        </span>
-                                    )}
-                                </div>
-
-                                <div className="flex gap-3">
-                                    <a
-                                        href={project.liveUrl}
-                                        className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex-1 justify-center"
-                                    >
-                                        <LinkIcon className="w-4 h-4" />
-                                        Live Demo
-                                    </a>
-                                    <a
-                                        href={project.githubUrl}
-                                        className="flex items-center gap-2 border-2 border-purple-600 text-purple-600 px-4 py-2 rounded-lg font-medium hover:bg-purple-600 hover:text-white transition-all duration-200"
-                                    >
-                                        <CodeBracketIcon className="w-4 h-4" />
-                                    </a>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="text-center mt-12"
-                >
-                    <a
-                        href="https://github.com/TanjilaShamima"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                    >
-                        <CodeBracketIcon className="w-5 h-5" />
-                        View All Projects on GitHub
-                    </a>
-                </motion.div>
-            </div>
-        </section>
+        <svg viewBox="0 0 240 120" className="h-full w-full" aria-hidden>
+            {Array.from({ length: 72 }, (_, i) => {
+                const x = (i % 12) * 20 + 10;
+                const y = Math.floor(i / 12) * 20 + 10;
+                const isHot = hot.has(i);
+                return (
+                    <circle
+                        key={i}
+                        cx={x}
+                        cy={y}
+                        r={isHot ? 5 : 2}
+                        className={isHot ? 'origin-center fill-accent transition-transform duration-500 [transform-box:fill-box] group-hover:scale-150' : 'fill-fg/20'}
+                    />
+                );
+            })}
+        </svg>
     );
 };
 
-export default ProjectsSection; 
+const WorkersGlyph = () => (
+    <svg viewBox="0 0 240 120" className="h-full w-full" aria-hidden>
+        <rect x="8" y="12" width="224" height="10" rx="2" className="fill-fg/15" />
+        {Array.from({ length: 8 }, (_, i) => (
+            <rect
+                key={i}
+                x="8"
+                y={34 + i * 10}
+                height="6"
+                rx="2"
+                width={62 + ((i * 7) % 5)}
+                className="origin-left fill-accent transition-transform duration-700 [transform-box:fill-box] group-hover:scale-x-[1.35]"
+                style={{ transitionDelay: `${i * 40}ms` }}
+            />
+        ))}
+    </svg>
+);
+
+const AuthGlyph = () => (
+    <svg viewBox="0 0 240 120" className="h-full w-full" aria-hidden fill="none">
+        <path d="M20 60h60" className="stroke-fg/25" strokeWidth="2" strokeDasharray="4 4" />
+        <path d="M160 60h60" className="stroke-fg/25" strokeWidth="2" strokeDasharray="4 4" />
+        <rect x="92" y="52" width="56" height="44" rx="6" className="stroke-fg/60" strokeWidth="2" />
+        <path d="M104 52v-12a16 16 0 0 1 32 0v12" className="stroke-accent transition-transform duration-500 group-hover:-translate-y-2" strokeWidth="2" />
+        <circle cx="120" cy="74" r="4" className="fill-accent" />
+        <circle cx="20" cy="60" r="5" className="fill-fg/40" />
+        <circle cx="220" cy="60" r="5" className="fill-fg/40" />
+    </svg>
+);
+
+const RegressionGlyph = () => {
+    const points = [
+        [20, 96], [36, 88], [52, 90], [66, 76], [82, 80], [96, 66], [112, 70], [128, 56], [142, 58], [158, 44], [174, 48], [190, 34], [206, 38], [220, 24],
+    ];
+    return (
+        <svg viewBox="0 0 240 120" className="h-full w-full" aria-hidden fill="none">
+            {points.map(([x, y]) => (
+                <circle key={x} cx={x} cy={y} r="3" className="fill-fg/35" />
+            ))}
+            <path
+                d="M16 100 L224 22"
+                className="stroke-accent [stroke-dasharray:240] [stroke-dashoffset:240] transition-[stroke-dashoffset] duration-700 group-hover:[stroke-dashoffset:0]"
+                strokeWidth="2"
+                strokeLinecap="round"
+            />
+        </svg>
+    );
+};
+
+const glyphs: Record<string, () => JSX.Element> = {
+    'Crime Hotspot Detection': HotspotGlyph,
+    'Parallel Server Log Analyzer': WorkersGlyph,
+    'Backend Authentication Service': AuthGlyph,
+    'Machine Learning Journey': RegressionGlyph,
+};
+
+const ProjectsSection = () => (
+    <Section
+        id="projects"
+        tone="band"
+        eyebrow="Projects"
+        title="Selected work, built in the open."
+        description="Most of my professional work is client-owned and under NDA. These are public projects from research and study — code included."
+        action={
+            githubUrl && (
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                    <Github size={15} /> All repositories
+                </a>
+            )
+        }
+    >
+        <div className="grid gap-5 md:grid-cols-2">
+            {projects.map((project, i) => {
+                const Glyph = glyphs[project.title] ?? HotspotGlyph;
+                return (
+                    <Reveal key={project.title} delay={(i % 2) * 0.08} className="h-full">
+                        <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-bg transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
+                            <div className="relative flex h-52 items-center justify-center overflow-hidden border-b border-line bg-gradient-to-br from-accent/[0.12] via-accent/[0.04] to-transparent px-10">
+                                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgb(var(--fg)/0.07)_1px,transparent_1px)] [background-size:16px_16px]" />
+                                <div className="relative h-32 w-full max-w-[260px] transition-transform duration-500 group-hover:scale-105">
+                                    <Glyph />
+                                </div>
+                                <span className="absolute left-5 top-5 rounded-full border border-line bg-surface/90 px-3 py-1 text-xs font-semibold text-fg backdrop-blur">
+                                    {project.kind}
+                                </span>
+                                <span className="absolute right-5 top-5 text-xs font-semibold text-subtle">{project.year}</span>
+                            </div>
+
+                            <div className="flex flex-1 flex-col p-6">
+                                <h3 className="text-xl font-bold tracking-[-0.01em] text-fg">{project.title}</h3>
+                                <p className="mt-2 flex-1 text-pretty text-[15px] leading-relaxed text-muted">{project.summary}</p>
+                                {project.highlight && (
+                                    <p className="mt-4 inline-flex w-fit rounded-lg bg-accent/10 px-3 py-1.5 text-sm font-semibold text-accent-ink">{project.highlight}</p>
+                                )}
+                                <div className="mt-5 flex flex-wrap gap-1.5">
+                                    {project.technologies.map((t) => (
+                                        <span key={t} className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-2 py-1 text-xs font-medium text-muted">
+                                            <TechIcon name={t} size={13} />
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                                <div className="mt-6 flex flex-wrap gap-2 border-t border-line pt-5">
+                                    {project.links.map((link) => (
+                                        <a
+                                            key={link.url}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-semibold text-fg transition-colors hover:bg-fg/[0.05]"
+                                        >
+                                            <Github size={15} /> {link.label} <ArrowUpRight size={14} className="text-subtle" />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </article>
+                    </Reveal>
+                );
+            })}
+        </div>
+    </Section>
+);
+
+export default ProjectsSection;

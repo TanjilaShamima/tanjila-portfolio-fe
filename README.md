@@ -29,7 +29,7 @@ This portfolio website represents my professional journey as a Senior Software E
 
 ### Key Highlights:
 - **Professional Experience**: 4+ years in React.js, Next.js, Node.js, and TypeScript
-- **Problem Solving**: 500+ problems solved across various platforms
+- **Problem Solving**: 800+ problems solved across various platforms
 - **Current Role**: Senior Software Engineer at Cosmos Tech Labs
 - **Specialization**: Full-stack development with MERN stack
 

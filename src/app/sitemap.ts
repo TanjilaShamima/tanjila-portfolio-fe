@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { baseUrl } from '@/@utils/metadata';
+import { getLocalPosts } from '@/lib/blog';
 
 /**
  * Generates the sitemap for the application.
@@ -20,6 +21,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly', 
       priority: 1
     },
-    // Add more URLs as needed
+    {
+      url: `${baseUrl}/blog/`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...getLocalPosts().map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}/`,
+      lastModified: new Date(`${post.date}T00:00:00Z`),
+      changeFrequency: 'yearly' as const,
+      priority: 0.6,
+    })),
   ];
 }

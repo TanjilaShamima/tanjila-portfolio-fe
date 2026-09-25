@@ -2,26 +2,225 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Colour tokens are RGB triplets so Tailwind can apply alpha (e.g. bg-fg/5).
+   `accent` is for marks (bars, dots, fills); `accent-ink` is the readable text variant. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: 247 247 248;
+  --surface: 255 255 255;
+  --fg: 10 10 12;
+  --muted: 82 82 91;
+  --subtle: 113 113 122;
+  --line: 230 230 233;
+  --accent: 13 148 136;
+  --accent-ink: 15 118 110;
+  color-scheme: light;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+.dark {
+  --bg: 11 11 13;
+  --surface: 19 19 22;
+  --fg: 237 237 240;
+  --muted: 161 161 170;
+  --subtle: 124 124 133;
+  --line: 38 38 44;
+  --accent: 19 168 152;
+  --accent-ink: 94 234 212;
+  color-scheme: dark;
+}
+
+html {
+  scroll-padding-top: 24px;
+}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.005em;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.22);
+  color: rgb(var(--fg));
+}
+
+/* Theme switch fades colours instead of snapping; .no-transition suppresses it on first paint. */
+body,
+body * {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-accent-ink;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-accent;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-card;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:border-fg/15 hover:shadow-lift;
+  }
+
+  .section-title {
+    @apply mb-6 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.14em] text-fg;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply h-px flex-1 bg-line;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-ink;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border border-line bg-bg px-2 py-0.5 text-xs font-medium text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-fg text-bg hover:opacity-90 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn border border-line bg-surface text-fg shadow-card hover:border-fg/20;
+  }
+
+  .link {
+    @apply font-medium text-accent-ink underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-bg px-3.5 py-2.5 text-[15px] text-fg placeholder-subtle outline-none transition-colors focus:border-accent focus:ring-4 focus:ring-accent/10;
+  }
+
+  .label {
+    @apply text-xs font-medium text-subtle;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Long-form article typography for blog posts. */
+.prose-post {
+  @apply text-[16.5px] leading-[1.8] text-fg/85;
+}
+
+.prose-post > * + * {
+  @apply mt-5;
+}
+
+.prose-post h2 {
+  @apply mt-14 text-2xl font-bold tracking-[-0.01em] text-fg;
+}
+
+.prose-post h3 {
+  @apply mt-9 text-lg font-semibold text-fg;
+}
+
+.prose-post a {
+  @apply link;
+}
+
+.prose-post strong {
+  @apply font-semibold text-fg;
+}
+
+.prose-post ul,
+.prose-post ol {
+  @apply space-y-2 pl-6;
+}
+
+.prose-post ul {
+  @apply list-disc marker:text-accent;
+}
+
+.prose-post ol {
+  @apply list-decimal marker:text-sm marker:font-semibold marker:text-subtle;
+}
+
+.prose-post blockquote {
+  @apply rounded-r-xl border-l-4 border-accent bg-accent/[0.06] px-5 py-4 text-[15px] text-fg;
+}
+
+.prose-post :not(pre) > code {
+  @apply rounded-md bg-fg/[0.06] px-1.5 py-0.5 font-mono text-[0.85em] text-fg;
+}
+
+.prose-post pre {
+  @apply overflow-x-auto rounded-xl border border-line p-5 font-mono text-[13.5px] leading-relaxed;
+  background: rgb(var(--surface)) !important;
+}
+
+.prose-post pre code span {
+  color: var(--shiki-light);
+}
+
+.dark .prose-post pre code span {
+  color: var(--shiki-dark);
+}
+
+.prose-post table {
+  @apply block w-full overflow-x-auto text-left text-[14.5px];
+  border-collapse: collapse;
+}
+
+.prose-post th {
+  @apply border-b border-line bg-bg px-3 py-2 text-xs font-semibold uppercase tracking-wide text-subtle;
+}
+
+.prose-post td {
+  @apply border-b border-line px-3 py-2.5 align-top;
+}
+
+.prose-post hr {
+  @apply my-10 border-line;
+}
+
+[lang='bn'] .prose-post {
+  line-height: 1.95;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
