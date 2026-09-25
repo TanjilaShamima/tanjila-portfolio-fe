@@ -7,8 +7,6 @@ import { ArrowLeft, Clock, Github } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
     return getLocalPosts().map((post) => ({ slug: post.slug }));
 }
